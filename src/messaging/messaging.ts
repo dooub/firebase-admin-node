@@ -767,11 +767,11 @@ export class Messaging implements FirebaseServiceInterface {
       Object.keys(value).forEach((subKey) => {
         if (!validator.isString(value[subKey])) {
           // Validate all sub-keys have a string value
-          throw new FirebaseMessagingError(
-            MessagingClientErrorCode.INVALID_PAYLOAD,
-            `Messaging payload contains an invalid value for the "${ payloadKey }.${ subKey }" ` +
-            `property. Values must be strings.`,
-          );
+          // throw new FirebaseMessagingError(
+          //   MessagingClientErrorCode.INVALID_PAYLOAD,
+          //   `Messaging payload contains an invalid value for the "${ payloadKey }.${ subKey }" ` +
+          //   `property. Values must be strings.`,
+          // );
         } else if (payloadKey === 'data' && /^google\./.test(subKey)) {
           // Validate the data payload does not contain keys which start with 'google.'.
           throw new FirebaseMessagingError(
